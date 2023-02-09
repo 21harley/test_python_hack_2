@@ -8,7 +8,19 @@ text: ["a","b"] output => ["2","1"]
 """
 
 
-def fn_hack_8():
-    result = ["a","b","c","d","e"]
-    #...
-    return result
+def fn_hack_8(result):
+    new_list=[]
+    aux=len(result)
+    if aux%2!=0:
+        cont=0
+        aux_list=result[::-1]
+        while(aux>=0):
+            if cont>=len(aux_list): break
+            new_list.append(str(aux_list[cont])+'-'+str(aux))
+            aux-=1
+            cont+=1
+    else:
+        while(aux>0):
+            new_list.append(str(aux))
+            aux-=1
+    return new_list
